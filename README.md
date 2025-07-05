@@ -12,7 +12,9 @@ The **Airbnb Clone Project** is a comprehensive backend-focused web application 
 - Apply CI/CD principles using GitHub Actions and Docker.
 - Collaborate using Git and GitHub effectively.
 
-## Tech Stack
+---
+
+## Technology Stack
 
 - **Backend Framework**: FastAPI
 - **Database**: PostgreSQL
@@ -20,6 +22,7 @@ The **Airbnb Clone Project** is a comprehensive backend-focused web application 
 - **Containerization**: Docker
 - **CI/CD**: GitHub Actions
 - **Version Control**: Git + GitHub
+- **Testing**: Pytest
 
 ---
 
@@ -39,6 +42,57 @@ Handles authentication systems (e.g., JWT), role-based access control, rate limi
 
 ### 5. Documentation Lead
 Manages project documentation including the README, API reference, setup guides, and database schema diagrams. Ensures clarity and ease of use for contributors.
+
+---
+
+## Database Design
+
+The application uses a normalized relational schema in PostgreSQL with the following key entities:
+
+- **Users** – stores user account data (name, email, password hash, etc.)
+- **Properties** – includes listing data such as name, description, location, price, etc.
+- **Bookings** – tracks reservations made by users for properties.
+- **Payments** – stores payment status and transaction info tied to bookings.
+
+All relationships are properly defined with foreign keys and indexes to ensure fast query performance.
+
+---
+
+## Feature Breakdown
+
+The core features of the Airbnb Clone include:
+
+- **User Registration & Login**: JWT-based authentication.
+- **Property Listings**: Users can view and list properties.
+- **Booking System**: Bookings are tied to properties and users, with date validation.
+- **Payment Tracking**: Simulated payment processing tied to bookings.
+- **Role Management**: Admins and regular users have different access levels.
+- **API Documentation**: Swagger/OpenAPI auto-generated from FastAPI.
+
+---
+
+## API Security
+
+Security measures implemented in this project:
+
+- **JWT Authentication**: Secure token-based login system.
+- **Password Hashing**: All passwords stored using industry-standard hashing (e.g., bcrypt).
+- **Role-Based Access Control**: Only authorized users can access specific endpoints.
+- **Input Validation**: Pydantic models used to validate request data.
+- **CORS Configuration**: Controlled cross-origin access.
+- **Rate Limiting** *(optional extension)*: Protects endpoints from abuse.
+
+---
+
+## CI/CD Pipeline
+
+The project uses GitHub Actions to automate the development workflow:
+
+- **Linting & Testing**: Code is linted and tested automatically on every push.
+- **Docker Build**: Application is built inside a Docker container for consistent environments.
+- **Deployment Steps**: Future integration planned for staging and production deployments.
+
+Example Workflow File: `.github/workflows/main.yml`
 
 ---
 
